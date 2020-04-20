@@ -1,4 +1,4 @@
-%%  sym variable process
+%%   sym variable process
 syms x y
 Fx = (x-3)^2+(y-2)^2;  %f(x,y) = (x-3)^2+(y-2)^2
 Jx = jacobian(Fx);  % Jacobian matrix of f
@@ -6,13 +6,13 @@ Ax = Jx'*Jx; %J'J
 gx = Jx'*Fx; % J'f(x,y)
 
 
-%% syms transform into function
+%%  syms transform into function
 F = matlabFunction(Fx); 
 J = matlabFunction(Jx);
 A = matlabFunction(Ax);
 g = matlabFunction(gx);
 
-%% initial value
+%%  initial value
 tau = 1e-10; 
 e = 1e-10; %error
 k = 0;
@@ -24,7 +24,7 @@ mu = tau*max(diag(A(X(1),X(2))));
 
 
 
-%% Main Loop
+%%  Main Loop
 while k<10000
     k = k+1;
     h = inv(A(X(1),X(2))+mu.*I)*-g(X(1),X(2)); %it can be changed to (A+mu*I)/-g but I didnt have a try
