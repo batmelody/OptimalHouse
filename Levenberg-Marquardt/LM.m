@@ -1,6 +1,6 @@
 %%  sym variable process
 syms x y
-Fx = (x-3)^2+(y-2)^2;  %f(x,y) =e^(xy)+cos(x)
+Fx = (x-3)^2+(y-2)^2;  %f(x,y) = (x-3)^2+(y-2)^2
 Jx = jacobian(Fx);  % Jacobian matrix of f
 Ax = Jx'*Jx; %J'J
 gx = Jx'*Fx; % J'f(x,y)
